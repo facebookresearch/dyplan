@@ -1,0 +1,16 @@
+{
+    "model_name_or_path": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "method": "non-retrieval",
+    "dataset": "musique",
+    "data_path": "../data/musique",
+    "filename": "train.json",
+    "fewshot": 8,
+    "start_index": 16000,
+    "sample": 4000,
+    "shuffle": false,
+    "generate_max_length": 200,
+    "query_formulation": "direct",
+    "output_dir": "../result_train/llama3_8b_chat_musique",
+    "es_index_name": "wiki",
+    "use_counter": true
+}

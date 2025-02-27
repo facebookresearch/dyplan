@@ -1,0 +1,47 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+### model
+model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 32
+
+### dataset
+dataset: 2wikimultihopqa_train-4k_l3-8b_e2e-direct-selfask-cot-rag_best-all-fields_multi-turn   # Update with your training dataset name
+template: llama3
+cutoff_len: 1024
+overwrite_cache: true
+preprocessing_num_workers: 16
+eval_dataset: 2wikimultihopqa_dev_l3-8b_e2e-direct-selfask-cot-rag_best-all-fields_multi-turn     # # Update with your eval dataset name
+
+### output
+output_dir: ./saves/llama3-8b/lora_r32_4k/2wikimultihopqa_e2e-direct-selfask-cot-rag_best-all-fields_multi-turn-mask
+logging_steps: 30
+save_steps: 250
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 1
+learning_rate: 1.0e-5
+num_train_epochs: 4.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+mask_history: true
+
+### eval
+per_device_eval_batch_size: 32
+eval_strategy: steps
+eval_steps: 200
+compute_accuracy: true

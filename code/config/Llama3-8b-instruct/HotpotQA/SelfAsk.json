@@ -1,0 +1,17 @@
+{
+    "model_name_or_path": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "method": "selfask",
+    "dataset": "hotpotqa",
+    "data_path": "../data/hotpotqa",
+    "filename": "train.json",
+    "fewshot": 4,
+    "start_index": 84000,
+    "sample": 4000,
+    "shuffle": false,
+    "generate_max_length": 300,
+    "query_formulation": "direct",
+    "examples": "original",
+    "do_retrieval": false,
+    "output_dir": "../result_train/llama3_8b_chat_hotpotqa",
+    "use_counter": true
+}

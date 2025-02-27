@@ -1,0 +1,18 @@
+{
+    "model_name_or_path": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "method": "single-retrieval",
+    "dataset": "2wikimultihopqa",
+    "data_path": "../data/2wikimultihopqa",
+    "filename": "train.json",
+    "fewshot": 6,
+    "start_index": 16000,
+    "sample": 4000,
+    "shuffle": false,
+    "generate_max_length": 200,
+    "query_formulation": "direct",
+    "output_dir": "../result_train/llama3_8b_chat_2wikimultihopqa",
+    "retriever": "BM25",
+    "es_index_name": "wiki",
+    "retrieve_topk": 3,
+    "use_counter": true
+}
